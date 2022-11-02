@@ -1,35 +1,9 @@
-enum Role {
-  ADMIN,
-  READ_ONLY,
-  AUTHOR,
+function add(n1: number, n2: number): number {
+  return n1 + n2;
 }
 
-const person: {
-  name: string;
-  age: 20;
-  hobbies: string[];
-  role: Role;
-} = {
-  name: 'sidiq cumar',
-  age: 20,
-  hobbies: ['Sports', 'Cooking'],
-  role: Role.READ_ONLY,
-};
+function printResult(num: number): void {
+  console.log('Result is: ' + num);
+}
 
-// UNION TYPES
-
-const combine = (inputOne: string | number, inputTwo: string | number) => {
-  let result;
-  if (typeof inputOne === 'number' && typeof inputTwo === 'number') {
-    result = inputOne + inputTwo;
-  } else {
-    result = inputOne.toString() + inputTwo.toString();
-  }
-
-  return result;
-};
-
-const combinationResult = combine('sidiq', 'omar');
-const age = combine(10, 8);
-
-console.log(combinationResult, age);
+printResult(add(1, 2));
