@@ -1,12 +1,9 @@
-function add(n1: number, n2: number) {
-  return n1 + n2;
-}
+const person: {
+  name: string;
+  age: 20;
+} = {
+  name: 'sidiq cumar',
+  age: 20,
+};
 
-const result = add(3, 4);
-
-console.log(result);
-
-// TYPE INFERENCE
-let numOne: number;
-
-numOne = 2;
+console.log(person.age);
