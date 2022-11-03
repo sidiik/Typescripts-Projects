@@ -1,28 +1,24 @@
-class Department {
+interface Person {
   name: string;
+  age: number;
+  greet(phrase: string): void;
+}
 
-  private employees: string[] = [];
-
-  constructor(name: string) {
-    this.name = name;
-  }
-
-  describe(this: Department) {
-    console.log('Departement: ' + this.name);
-  }
-
-  addEmployee(name: string) {
-    this.employees.push(name);
-  }
-
-  printEmployees() {
-    console.log(this.employees);
+class PersonTwo implements Person {
+  constructor(public name: string, public age: number) {}
+  greet(phrase: string) {
+    console.log(`${phrase} ${this.name}`);
   }
 }
 
-const accounting = new Department('Accounting');
+let personOne: Person = {
+  name: 'sidiq',
+  age: 19,
+  greet(phrase: string) {
+    console.log(`${phrase} ${this.name}`);
+  },
+};
 
-accounting.addEmployee('muse');
-accounting.printEmployees();
+const person = new PersonTwo('sidiq', 19);
 
-console.log(accounting);
+person.greet('Hi there i am');
