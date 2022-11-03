@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface TodoListProps {
-  todos: { id: number; text: string }[];
+  todos: { id: string; text: string }[];
 }
 
 const Todos: React.FC<TodoListProps> = ({ todos }) => {
   return (
-    <div>
+    <div className='todos'>
       {todos.map((todo) => {
-        return <div>{todo.text}</div>;
+        return <li>{todo.text}</li>;
       })}
     </div>
   );
