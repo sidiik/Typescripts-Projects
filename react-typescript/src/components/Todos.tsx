@@ -1,5 +1,7 @@
-import React from 'react';
+import { FC } from 'react';
 import Todo from './Todo';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 // INTERFACES
 interface TodoListProps {
@@ -7,12 +9,14 @@ interface TodoListProps {
   deleteTodoHandler: (todoId: string) => void;
 }
 
-const Todos: React.FC<TodoListProps> = ({ todos, deleteTodoHandler }) => {
+const Todos: FC<TodoListProps> = ({ deleteTodoHandler }) => {
+  const { todos } = useSelector((state: RootState) => state.todoSlice);
+
   return (
     <div className='todos'>
-      {todos.map((todo) => {
+      {todos.map((todo, idx) => {
         return (
-          <li>
+          <li key={idx}>
             <Todo todo={todo} deleteTodoHandler={deleteTodoHandler} />
           </li>
         );
